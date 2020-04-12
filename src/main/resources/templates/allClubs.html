@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+	<head th:replace="_fragments :: head(~{::title})">
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+		<title>社团介绍</title>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="../static/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../static/css/line-icons.css">
+		<link rel="stylesheet" href="../static/css/owl.carousel.css">
+		<link rel="stylesheet" href="../static/css/owl.theme.css">
+		<link rel="stylesheet" href="../static/css/nivo-lightbox.css">
+		<link rel="stylesheet" href="../static/css/magnific-popup.css">
+		<link rel="stylesheet" href="../static/css/animate.css">
+		<link rel="stylesheet" href="../static/css/menu_sideslide.css">
+		<link rel="stylesheet" href="../static/css/main.css">
+		<link rel="stylesheet" href="../static/css/responsive.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+
+	</head>
+
+	<body>
+		<!-- Header Section Start -->
+		<header id="slider-area">
+			<nav class="navbar navbar-expand-lg fixed-top scrolling-navbar  bg-white" th:replace="_fragments :: menu">
+				<div class="container">
+					<a class="navbar-brand" href="#" style="color: #F97794;"><span class="lni-bulb"></span>社团联合会</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+					 aria-expanded="false" aria-label="Toggle navigation">
+						<i class="lni-menu"></i>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarCollapse">
+						<ul class="navbar-nav mr-auto w-100 justify-content-end">
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">首页</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">社团介绍</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">社团活动</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">社团新闻</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">登录</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">注册</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">注销</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">个人中心</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<!-- Header Section End -->
+
+		<!-- Services Section Start -->
+		<section id="club" class="section">
+			<div class="container">
+				<div class="section-header">
+					<h2 class="section-title">社团介绍</h2>
+					<span>Community</span>
+					<p class="section-subtitle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;大学社团是学生自愿组织的群众性团体，在校党委、团委的领导下，在学生社团联合会的指导下，组织开展健康、积极有益的课外文化、科技体育、艺术等活动，它组织开展同学们的各项活动，丰富了同学们的业余文化生活，培养学生的综合素质。它既不同于第一课堂的专业学习，又与自身的全面发展有着密切的联系。通过社团活动，
+						能拓展同学们视野，培养创新精神和实验能力，为同学们实现自己的人生理想、从容的面对社会生活打下了坚实的基础。</p>
+				</div>
+				<!-- Community Show Start -->
+
+				<!-- One Page Start -->
+				<div class="row">
+					<!-- One Unit Start -->
+					<div class="col-lg-4 col-md-6 col-xs-12" th:each="club : ${page.content} ">
+						<div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
+							<div class="icon color-1">
+								<i class="lni-layers"></i>
+								<h4><b th:text="${club.name}">武术协会</b></h4>
+							</div>
+							<p th:text="${club.description}">这是一个社团的简介，自动获取6个社团的简介然后放在这里，进行展示------------------把散播爱打架殴打偶偶奇偶奇偶奇偶玩·······</p>
+							<br/>
+							<button class="ui tiny pink basic button"><a th:href="@{/club/{id}(id=${club.id})}" style="color: #F97794;">详细信息</a></button>
+						</div>
+					</div>
+					<!-- One Unit End -->
+					<div class="col-lg-12 col-md-12 col-xs-12" >
+						<div class="featured-box" th:if="${page.totalPages}>1">
+							<div class="featured-content">
+								<button class="ui left floated  pink basic button"  th:unless="${page.first}">
+									<a th:href="@{/allClubs(page=${page.number}-1)}"   style="color: #F97794;">上一页</a>
+								</button>
+							</div>
+							<div class="featured-content">
+								<button class="ui right floated pink basic  button"  th:unless="${page.last}">
+									<a th:href="@{/allClubs(page=${page.number}+1)}"  style="color: #F97794;">下一页</a>
+								</button>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<!-- Services Section End -->
+
+		<!-- Footer Section Start -->
+		<footer th:replace="_fragments :: footer">
+			<!-- Copyright Start  -->
+			<div id="copyright">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="site-info float-left">
+								<p>聊城大学 &emsp;巫_月</p>
+							</div>
+							<div class="float-right">
+								<ul class="nav nav-inline">
+									<li class="nav-item">
+										<a class="nav-link active" href="#">关于</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">QQ</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">CSDN</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">博客</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Copyright End -->
+
+		</footer>
+		<!-- Footer Section End -->
+
+		<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+		<script src="../static/js/wow.js"></script>
+		<script src="../static/js/jquery-min.js"></script>
+		<script src="../static/js/bootstrap.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+		<!--/*/</th:block>/*/-->
+	</body>
+</html>

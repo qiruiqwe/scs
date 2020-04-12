@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:fragment="head(title)">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:replace="${title}">信息管理</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="../../static/css/me.css" th:href="@{/css/me.css}">
+    <link rel="stylesheet" href="../../static/css/main.css" th:href="@{/css/main.css}">
+    <link rel="stylesheet" href="../../static/css/qi.css" th:href="@{/css/qi.css}">
+    <link rel="stylesheet" href="../../../static/lib/editormd/css/editormd.min.css" th:href="@{/lib/editormd/css/editormd.min.css}">
+</head>
+<body>
+
+<!--导航-->
+<nav class="ui attached segment m-padded-tb-mini m-shadow-small" th:fragment="menu(n)">
+    <div class="ui container">
+        <div class="ui secondary stackable menu">
+            <h2 class="ui q-pink-color header item">信息管理</h2>
+            <a class="m-item item m-mobile-hide" href="#" th:href="@{/}" th:classappend="${n==1} ? 'active'"><i class="home icon"></i> 返回主页</a>
+            <a class="m-item item m-mobile-hide" href="#" th:href="@{/peopleInfo/info}" th:classappend="${n==2} ? 'active'"><i class="user icon"></i>个人信息</a>
+            <a class="m-item item m-mobile-hide" href="#" th:href="@{/peopleInfo/joinActivities}" th:classappend="${n==3} ? 'active'"><i class="star icon"></i>活动中心</a>
+            <div class="m-item m-mobile-hide menu" th:if="${session.myclub.size()}>0">
+                <div class="ui dropdown item">
+                    <div class="text">
+                        <span th:text="${session.myclub.get(0).name}">我的社团</span>
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a class="item" href="#" th:href="@{/peopleInfo/clubManager/activity-input}" th:classappend="${n==4} ? 'active'"><i class="lemon icon" ></i>活动发布</a>
+                        <a class="item" href="#" th:href="@{/peopleInfo/clubManager/new-input}" th:classappend="${n==5} ? 'active'"><i class="newspaper icon" ></i>新闻发布</a>
+                        <a class="item" href="#" th:href="@{/peopleInfo/clubManager/members}" th:classappend="${n==6} ? 'active'"><i class="users icon" ></i>人员管理</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right m-item m-mobile-hide menu">
+                <div class="ui dropdown  item">
+                    <div class="text" >
+                        <span th:text="${session.user.nickname}">测试</span>
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a href="#" th:href="@{/logout}" class="item">注销</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+<!-- Footer Section Start -->
+<footer th:fragment="footer">
+    <!-- Copyright Start  -->
+    <div id="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="site-info float-left">
+                        <p>聊城大学 &emsp;巫_月</p>
+                    </div>
+                    <div class="float-right">
+                        <ul class="nav nav-inline">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">关于</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">QQ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">CSDN</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">博客</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+</footer>
+<!-- Footer Section End -->
+
+<th:block th:fragment ="script">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+    <script src="../../../static/lib/editormd/editormd.min.js" th:src="@{/lib/editormd/editormd.min.js}"></script>
+</th:block>
+
+</body>
+</html>

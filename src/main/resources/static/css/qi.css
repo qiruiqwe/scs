@@ -1,0 +1,36 @@
+.q-container {
+    max-width: 60em !important;
+    margin: auto !important;
+}
+.q-width{
+	width:auto!important ;
+}
+.q-left-float{
+	float: left !important;
+}
+.q-right-float{
+	float: right !important;
+}
+.q-center-float{
+	margin:0 auto !important;
+	width: 100px !important;
+}
+.q-font-size{
+	font-size: 25px!important;
+}
+.q-left-margin{
+	margin-left: 20px !important;
+}
+.q-right-margin{
+	margin-right: 20px !important;
+}
+.q-pink-color{
+	color: #F97794 !important;
+	
+}
+.q-white-bgcolor{
+	background-color: #FFFFFF !important;
+}
+.q-text-transform{
+text-transform: none !important;
+}

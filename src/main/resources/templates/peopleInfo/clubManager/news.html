@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="peopleInfo/_fragments ::head(~{::title})">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻发布</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../../../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../static/css/me.css">
+    <link rel="stylesheet" href="../../../static/css/main.css">
+    <link rel="stylesheet" href="../../../static/css/qi.css">
+    <link rel="stylesheet" href="../../../static/lib/editormd/css/editormd.min.css">
+</head>
+<body>
+<!--导航-->
+<nav class="ui attached segment m-padded-tb-mini m-shadow-small" th:replace="peopleInfo/_fragments :: menu(5)">
+    <div class="ui container">
+        <div class="ui secondary stackable menu">
+            <h2 class="ui q-pink-color header item">信息管理</h2>
+            <a class="m-item item m-mobile-hide" href="#"><i class="home icon"></i> 返回主页</a>
+            <a class="m-item item m-mobile-hide" href="#"><i class="user icon"></i>个人信息</a>
+            <a class=" m-item item m-mobile-hide" href="#"><i class="star icon"></i>活动中心</a>
+            <div class="m-item m-mobile-hide menu">
+                <div class="ui dropdown item">
+                    <div class="text">
+                        社团管理
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a class="item" href="#"><i class="lemon icon"></i>活动发布</a>
+                        <a class="active item" href="#"><i class="newspaper icon"></i>新闻发布</a>
+                        <a class="item" href="#"><i class="users icon"></i>人员管理</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right m-item m-mobile-hide menu">
+                <div class="ui dropdown  item">
+                    <div class="text">
+                        亓瑞
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a href="#" th:href="@{/admin/logout}" class="item">注销</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+
+<div class="ui attached pointing menu">
+    <div class="ui container">
+        <div class="right menu">
+            <a href="#" th:href="@{/peopleInfo/clubManager/new-input}" class="item">新增</a>
+            <a href="#" th:href="@{/peopleInfo/clubManager/news}" class="pink active item">列表</a>
+        </div>
+    </div>
+</div>
+
+<!--中间内容-->
+<div class="m-container-small m-padded-tb-big">
+    <div class="ui container">
+        <div id="table-container">
+            <table class="ui compact pink table">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>标题</th>
+                    <th>浏览次数</th>
+                    <th>发布时间</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="mynew,iterStat : ${page.content}">
+                    <td th:text="${iterStat.count}">1</td>
+                    <td th:text="${mynew.title}">这是一个新闻</td>
+                    <td th:text="${mynew.views}">20</td>
+                    <td th:text="${#dates.format(mynew.publishtime,'yyyy-MM-dd HH:mm')}">2017-10-02 09:45</td>
+                    <td>
+                        <a href="#" th:href="@{/peopleInfo/clubManager/new/{id}(id=${mynew.id})}"
+                           class="ui mini teal basic button">编辑</a>
+                        <a href="#" th:href="@{/peopleInfo/clubManager/new/{id}/delete(id=${mynew.id})}"
+                           class="ui mini red basic button">删除</a>
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th colspan="6">
+                        <div class="ui mini pagination menu" th:if="${page.totalPages}>1">
+                            <a class="item" th:href="@{/peopleInfo/clubManager/news(page=${page.number}-1)}"
+                               th:unless="${page.first}">上一页</a>
+                            <a class="item" th:href="@{/peopleInfo/clubManager/news(page=${page.number}+1)}"
+                               th:unless="${page.last}">下一页</a>
+                        </div>
+                        <a href="#" th:href="@{/peopleInfo/clubManager/new-input}"
+                           class="ui mini right floated pink basic button">新增</a>
+                    </th>
+                </tr>
+                </tfoot>
+            </table>
+
+            <div class="ui success message" th:unless="${#strings.isEmpty(message)}">
+                <i class="close icon"></i>
+                <div class="header">提示：</div>
+                <p th:text="${message}">恭喜，操作成功！</p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<br>
+<br>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!-- Footer Section Start -->
+<footer th:replace="peopleInfo/_fragments :: footer">
+    <!-- Copyright Start  -->
+    <div id="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="site-info float-left">
+                        <p>聊城大学 &emsp;巫_月</p>
+                    </div>
+                    <div class="float-right">
+                        <ul class="nav nav-inline">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">关于</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">QQ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">CSDN</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">博客</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Copyright End -->
+
+<!--/*/<th:block th:replace="peopleInfo/_fragments :: script">/*/-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<script src="../../../static/lib/editormd/editormd.min.js" th:src="@{/lib/editormd/editormd.min.js}"></script>
+<!--/*/</th:block>/*/-->
+
+<script>
+    //初始化Markdown编辑器
+    var contentEditor;
+    $(function () {
+        contentEditor = editormd("md-content", {
+            width: "100%",
+            height: 640,
+            syncScrolling: "single",
+            // path: "../../../static/lib/editormd/lib/"
+            path: "/lib/editormd/lib/"
+        });
+    });
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    $('.ui.dropdown').dropdown({
+        on: 'hover'
+    });
+    //消息提示关闭初始化
+    $('.message .close')
+        .on('click', function () {
+            $(this)
+                .closest('.message')
+                .transition('fade');
+        });
+
+    $('.ui.form').form({
+        fields: {
+            title: {
+                identifier: 'title',
+                rules: [{
+                    type: 'empty',
+                    prompt: '标题：请输入博客标题'
+                }]
+            },
+            content: {
+                identifier: 'content',
+                rules: [{
+                    type: 'empty',
+                    prompt: '标题：请输入博客内容'
+                }]
+            },
+            typeId: {
+                identifier: 'type.id',
+                rules: [{
+                    type: 'empty',
+                    prompt: '标题：请输入博客分类'
+                }]
+            },
+            firstPicture: {
+                identifier: 'firstPicture',
+                rules: [{
+                    type: 'empty',
+                    prompt: '标题：请输入博客首图'
+                }]
+            },
+            description: {
+                identifier: 'description',
+                rules: [{
+                    type: 'empty',
+                    prompt: '标题：请输入博客描述'
+                }]
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

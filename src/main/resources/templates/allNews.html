@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+	<head th:replace="_fragments :: head(~{::title})">
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>社团新闻</title>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="../static/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../static/css/line-icons.css">
+		<link rel="stylesheet" href="../static/css/owl.carousel.css">
+		<link rel="stylesheet" href="../static/css/owl.theme.css">
+		<link rel="stylesheet" href="../static/css/nivo-lightbox.css">
+		<link rel="stylesheet" href="../static/css/magnific-popup.css">
+		<link rel="stylesheet" href="../static/css/animate.css">
+		<link rel="stylesheet" href="../static/css/menu_sideslide.css">
+		<link rel="stylesheet" href="../static/css/main.css">
+		<link rel="stylesheet" href="../static/css/responsive.css">
+		<link rel="stylesheet" type="text/css" href="../static/css/qi.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+
+	</head>
+
+	<body>
+		<!-- Header Section Start -->
+		<header id="slider-area">
+			<nav class="navbar navbar-expand-lg fixed-top scrolling-navbar  bg-white" th:replace="_fragments :: menu">
+				<div class="container">
+					<a class="navbar-brand" href="#" style="color: #F97794;"><span class="lni-bulb"></span>社团联合会</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+					 aria-expanded="false" aria-label="Toggle navigation">
+						<i class="lni-menu"></i>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarCollapse">
+						<ul class="navbar-nav mr-auto w-100 justify-content-end">
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">首页</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">社团介绍</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">社团活动</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">社团新闻</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">登录</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">注册</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">注销</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">个人中心</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<!-- Header Section End -->
+
+		<!-- News List Start -->
+		<section id="news" class="testimonial section">
+			<div class="container">
+				<div class="section-header">
+					<h2 class="section-title">新闻热点</h2>
+					<span>News</span>
+					<p class="section-subtitle">&emsp;&emsp;新闻，是指报纸、电台、电视台、互联网等媒体经常使用的记录与传播信息的一种文体，是反映时代的一种文体。社团新闻包括学校重大赛事的公开、活动结果的公示、相关政策的说明等。它是校园文化的重要载体，是学生愉悦身心、拓宽兴趣、开阔视野的主要阵地。</p>
+				</div>
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-xs-12" th:each="mynew : ${page.content}">
+						<div class="news-box">
+							<div class="news-icon">
+								<span><i class="lni-star-filled"></i></span>
+							</div>
+							<a href="" th:href="@{/new/{id}(id=${mynew.id})}">
+								<span class="news-content" >
+									<th th:text="${mynew.title}">最新的新闻</th>
+									<span>
+										<th th:text="${#dates.format(mynew.publishtime,'yyyy-MM-dd')}">1997-10-06</th>&emsp;
+										<b>阅读量:</b>
+										<b th:text="${mynew.views}">58</b>
+									</span>
+								</span>
+							</a>
+						</div>
+					</div>
+
+					<br>
+					<br>
+					<div class="col-lg-12 col-md-12 col-xs-12" >
+						<div class="featured-box" th:if="${page.totalPages}>1">
+							<div class="featured-content">
+								<button class="ui left floated  pink basic button"  th:unless="${page.first}">
+									<a th:href="@{/allNews(page=${page.number}-1)}"   style="color: #F97794;">上一页</a>
+								</button>
+							</div>
+							<div class="featured-content">
+								<button class="ui right floated pink basic  button"  th:unless="${page.last}">
+									<a th:href="@{/allNews(page=${page.number}+1)}"  style="color: #F97794;">下一页</a>
+								</button>
+							</div>
+						</div>
+					</div>
+
+<!--
+					<div class="col-lg-12 col-md-12 col-xs-12">
+						<div class="news-box">
+							<div class="news-icon">
+								<span><i class="lni-star-filled"></i></span>
+							</div>
+							<a href=""><span class="news-content">最新的新闻<span>1997-10-06&emsp;<b>阅读量:58</b></span></span></a>
+						</div>
+					</div>
+					<div class="col-lg-12 col-md-12 col-xs-12">
+						<div class="news-box">
+							<div class="news-icon">
+								<span><i class="lni-star-filled"></i></span>
+							</div>
+							<a href=""><span class="news-content">最新的新闻<span>1997-10-06&emsp;<b>阅读量:58</b></span></span></a>
+						</div>
+					</div>
+					<div class="col-lg-12 col-md-12 col-xs-12">
+						<div class="news-box">
+							<div class="news-icon">
+								<span><i class="lni-star-filled"></i></span>
+							</div>
+							<a href=""><span class="news-content">最新的新闻<span>1997-10-06&emsp;<b>阅读量:58</b></span></span></a>
+						</div>
+					</div>
+					<div class="col-lg-12 col-md-12 col-xs-12">
+						<div class="news-box">
+							<div class="news-icon">
+								<span><i class="lni-star-filled"></i></span>
+							</div>
+							<a href=""><span class="news-content">最新的新闻<span>1997-10-06&emsp;<b>阅读量:58</b></span></span></a>
+						</div>
+					</div>
+-->
+				</div>
+			</div>
+		</section>
+
+		<!-- News List End -->
+
+		<!-- Footer Section Start -->
+		<footer th:replace="_fragments :: footer">
+			<!-- Copyright Start  -->
+			<div id="copyright">
+				<div class="m-container-small container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="site-info float-left">
+								<p>聊城大学 &emsp;巫_月</p>
+							</div>
+							<div class="float-right">
+								<ul class="nav nav-inline">
+									<li class="nav-item">
+										<a class="nav-link active" href="#">关于</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">QQ</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">CSDN</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">博客</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Copyright End -->
+
+		</footer>
+		<!-- Footer Section End -->
+
+
+		<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+		<script src="../static/js/wow.js" th:src="@{/js/wow.js}"></script>
+		<script src="../static/js/jquery-min.js"  th:src="@{/js/jquery-min.js}"></script>
+		<script src="../static/js/bootstrap.min.js"  th:src="@{/js/bootstrap.min.js}"></script>
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+		<!--/*/</th:block>/*/-->
+	</body>
+</html>

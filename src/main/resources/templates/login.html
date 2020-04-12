@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+	<head th:replace="_fragments :: head(~{::title})">
+		<meta charset="utf-8">
+		<title>登录</title>
+		<link rel="stylesheet" href="../static/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../static/css/line-icons.css">
+		<link rel="stylesheet" href="../static/css/owl.carousel.css">
+		<link rel="stylesheet" href="../static/css/owl.theme.css">
+		<link rel="stylesheet" href="../static/css/nivo-lightbox.css">
+		<link rel="stylesheet" href="../static/css/magnific-popup.css">
+		<link rel="stylesheet" href="../static/css/animate.css">
+		<link rel="stylesheet" href="../static/css/menu_sideslide.css">
+		<link rel="stylesheet" href="../static/css/main.css">
+		<link rel="stylesheet" href="../static/css/responsive.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+	</head>
+	<body>
+		<!-- Header Section Start -->
+		<header id="slider-area">
+			<nav class="navbar navbar-expand-lg fixed-top scrolling-navbar  bg-white" th:replace="_fragments :: menu">
+				<div class="container">
+					<a class="navbar-brand" href="#" style="color: #F97794;"><span class="lni-bulb"></span>社团联合会</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+					 aria-expanded="false" aria-label="Toggle navigation">
+						<i class="lni-menu"></i>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarCollapse">
+						<ul class="navbar-nav mr-auto w-100 justify-content-end">
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">首页</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">社团介绍</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">社团活动</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">社团新闻</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">登录</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">注册</a>
+							</li>		
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">注销</a>
+							</li>	
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">个人中心</a>
+							</li>						
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<!-- Header Section End -->
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<!-- Login Start -->
+		<div id="subscribe" class="section">
+			<div class="container">
+				<div class="row justify-content-between">
+					<div class="col-lg-5 col-md-12 col-xs-12">
+						<div class="subscribe-form ">
+							<div class="form-wrapper">
+								<div class="sub-title text-center">
+									<h3>登录</h3>
+									<p></p>
+								</div>
+								<form th:action="@{/login}" method="post">
+									<div class="row">
+										<div class="col-12 form-line">
+											<div class="form-group">
+												<input type="text" style="text-transform: none !important;" class="form-control" name="username" placeholder="账号">
+											</div>
+										</div>
+										<div class="col-12 form-line">
+											<div class="form-group">
+												<input type="password"style="text-transform: none !important;"  class="form-control" name="password" placeholder="密码">
+											</div>
+										</div>
+										<div class="col-12">
+											<div class="form-submit">
+												<button type="submit" class="btn btn-common btn-effect">登录</button>
+											</div>
+										</div>
+									</div>
+									<div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">用户名和密码错误</div>
+
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-12 col-xs-12">
+						<div class="sub-item-box">
+							<div class="icon-box">
+								<i class="lni-bullhorn"></i>
+							</div>
+							<div class="text-box">
+								<h4>参加社团</h4>
+								<p>大学里如果想要多交一些朋友，那么参加几个社团是非常不错的选择。大学里不参加任何活动的人的交友范围都是寝室或者邻寝，几年下来很可能就只和自己室友关系不错，认识的也是同班的其他女生。</p>
+							</div>
+						</div>
+						<div class="sub-item-box">
+							<div class="icon-box">
+								<i class="lni-book"></i>
+							</div>
+							<div class="text-box">
+								<h4>社团活动报名</h4>
+								<p>登录后，您可以有选择的参加各个社团的活动，同时也方便社团管理人员联系你。</p>
+							</div>
+						</div>
+						<div class="sub-item-box">
+							<div class="icon-box">
+								<i class="lni-timer"></i>
+							</div>
+							<div class="text-box">
+								<h4>每周免费学习资料</h4>
+								<p>不定期的更新炙手可热的学习资料，增加广大师生获取资料的渠道，为高效学习做保障！</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Login End -->
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<!-- Footer Section Start -->
+		<footer th:replace="_fragments :: footer">
+			<!-- Copyright Start  -->
+			<div id="copyright">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="site-info float-left">
+								<p>聊城大学 &emsp;巫_月</p>
+							</div>
+							<div class="float-right">
+								<ul class="nav nav-inline">
+									<li class="nav-item">
+										<a class="nav-link active" href="#">关于</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">QQ</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">CSDN</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">博客</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Copyright End -->
+		
+		</footer>
+		<!-- Footer Section End -->
+		<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+		<script src="../static/js/wow.js" th:src="@{/js/wow.js}"></script>
+		<script src="../static/js/jquery-min.js"  th:src="@{/js/jquery-min.js}"></script>
+		<script src="../static/js/bootstrap.min.js"  th:src="@{/js/bootstrap.min.js}"></script>
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+		<!--/*/</th:block>/*/-->
+
+	</body>
+</html>

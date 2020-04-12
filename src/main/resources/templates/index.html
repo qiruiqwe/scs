@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+	<head th:replace="_fragments :: head(~{::title})">
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>大学生社团管理系统</title>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+		<link rel="stylesheet" href="../static/css/line-icons.css" th:href="@{/css/line-icons.css}">
+		<link rel="stylesheet" href="../static/css/owl.carousel.css" th:href="@{/css/owl.carousel.css}">
+		<link rel="stylesheet" href="../static/css/owl.theme.css" th:href="@{/css/owl.theme.css}">
+		<link rel="stylesheet" href="../static/css/nivo-lightbox.css" th:href="@{/css/nivo-lightbox.css}">
+		<link rel="stylesheet" href="../static/css/magnific-popup.css" th:href="@{/css/magnific-popup.css}">
+		<link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
+		<link rel="stylesheet" href="../static/css/menu_sideslide.css" th:href="@{/css/menu_sideslide.css}">
+		<link rel="stylesheet" href="../static/css/main.css" th:href="@{/css/main.css}">
+		<link rel="stylesheet" href="../static/css/responsive.css" th:href="@{/css/responsive.css}">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+	</head>
+
+	<body>
+		<!-- Header Section Start -->
+		<header id="slider-area" >
+			<nav class="navbar navbar-expand-lg fixed-top scrolling-navbar  bg-white" th:replace="_fragments :: menu">
+				<div class="container">
+					<a class="navbar-brand" href="#" style="color: #F97794;"><span class="lni-bulb"></span>社团联合会</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+					 aria-expanded="false" aria-label="Toggle navigation">
+						<i class="lni-menu"></i>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarCollapse">
+						<ul class="navbar-nav mr-auto w-100 justify-content-end">
+							<li class=" nav-item">
+								<a class="nav-link page-scroll" th:href="@{/index}" href="#">首页</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" th:href="@{/allClubs}" href="#">社团介绍</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" th:href="@{/allActivities}" href="#">社团活动</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" th:href="@{/allNews}" href="#">社团新闻</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" th:href="@{/login}" href="#">登录</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" th:href="@{/register}" href="#">注册</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" th:href="@{/logout}" href="#">注销</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" th:href="@{/peopleInfo/index}" href="#">个人中心</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+			<!-- Main Carousel Section -->
+			<div id="carousel-area">
+				<div id="carousel-slider" class="carousel slide carousel-fade" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#carousel-slider" data-slide-to="0" class="active"></li>
+						<li data-target="#carousel-slider" data-slide-to="1"></li>
+						<li data-target="#carousel-slider" data-slide-to="2"></li>
+					</ol>
+					<div class="carousel-inner" role="listbox">
+						<div class="carousel-item active">
+							<img src="../static/img/slider/bg_1.jpg" th:src="@{/img/slider/bg_1.jpg}" alt="">
+							<div class="carousel-caption text-left">
+								<h4 class="wow fadeInRight" data-wow-delay="0.2s">事无巨细,人各迥异</h1>
+									<h2 class="wow fadeInRight" data-wow-delay="0.4s">
+										<font color="lightpink">我们等的就是你 !</font>
+									</h2>
+									<h3 class="wow fadeInRight" data-wow-delay="0.6s">来吧,朋友 !</h3>
+								</h4>
+								<a th:href="@{/login}" class="btn btn-lg btn-common btn-effect wow fadeInRight" data-wow-delay="0.9s">登录</a>
+								<a th:href="@{/register}" class="btn btn-lg btn-border wow fadeInRight" data-wow-delay="1.2s">注册!</a>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<img src="../static/img/slider/bg_2.jpg" th:src="@{/img/slider/bg_2.jpg}" alt="">
+							<div class="carousel-caption text-center">
+								<h3 class="wow fadeInDown" data-wow-delay="0.3s">追不到女神？</h3>
+								<h2 class="wow bounceIn" data-wow-delay="0.6s">社团联合会，期待你的加入</h2>
+								<h4 class="wow fadeInUp" data-wow-delay="0.9s">求萌妹、求御姐、求正太 云集各类精英····</h4>
+								<a th:href="@{/allClubs}" class="btn btn-lg btn-common btn-effect wow fadeInUp" data-wow-delay="1.2s">了解社团</a>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<img src="../static/img/slider/bg_3.jpg"  th:src ="@{/img/slider/bg_3.jpg}"alt="">
+							<div class="carousel-caption text-center">
+								<h3 class="wow fadeInDown" data-wow-delay="0.3s">你准备好了么？</h3>
+								<h2 class="wow fadeInRight" data-wow-delay="0.6s">好少年=文明+价值+爱心+力量</h2>
+								<h4 class="wow fadeInUp" data-wow-delay="0.6s">在活动中，增长社交能力、培养兴趣，缓解学习压力、锻炼领导能力··</h4>
+								<a th:href="@{/allActivities}" class="btn btn-lg btn-border wow fadeInUp" data-wow-delay="0.9s">相关活动</a>
+							</div>
+						</div>
+					</div>
+					<a class="carousel-control-prev" href="#carousel-slider" role="button" data-slide="prev">
+						<span class="carousel-control" aria-hidden="true"><i class="lni-chevron-left"></i></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#carousel-slider" role="button" data-slide="next">
+						<span class="carousel-control" aria-hidden="true"><i class="lni-chevron-right"></i></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+			</div>
+		<!-- Header Section End -->
+
+		<!-- Community Show Start -->
+		<section id="club" class="section">
+			<div class="container">
+				<div class="section-header">
+					<h2 class="section-title">精彩社团</h2>
+					<span>Community</span>
+					<p class="section-subtitle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;大学社团是学生自愿组织的群众性团体，在校党委、团委的领导下，在学生社团联合会的指导下，组织开展健康、积极有益的课外文化、科技体育、艺术等活动，它组织开展同学们的各项活动，丰富了同学们的业余文化生活，培养学生的综合素质。它既不同于第一课堂的专业学习，又与自身的全面发展有着密切的联系。通过社团活动，
+						能拓展同学们视野，培养创新精神和实验能力，为同学们实现自己的人生理想、从容的面对社会生活打下了坚实的基础。</p>
+				</div>
+				<!-- Community Show Start -->
+
+				<!-- One Page Start -->
+				<div class="row">
+					<!-- One Unit Start -->
+					<div class="col-lg-4 col-md-6 col-xs-12" th:each = "club : ${clubs}" >
+						<div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
+							<div class="icon color-1">
+								<i class="lni-layers"></i>
+								<h4 th:text ="${club.name}"><b>武术协会</b></h4>
+							</div>
+							<p th:text ="|${club.description}......|">这是一个社团的简介，自动获取6个社团的简介然后放在这里，进行展示------------------把散播爱打架殴打偶偶奇偶奇偶奇偶玩·······</p>
+							<br />
+							<button class="ui tiny pink basic button"><a href="" th:href="@{/club/{id}(id=${club.id})}" style="color: #F97794;">详细信息</a></button>
+						</div>
+					</div>
+					<!-- One Unit End -->
+
+				</div>
+				<!-- One Page End -->
+			</div>
+		</section>
+		<!-- Community Show End -->
+
+		<!-- Build Community Start -->
+		<section class="call-action section">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-10">
+						<div class="cta-trial text-center">
+							<h3>你想要成立自己的社团么？</h3>
+							<p>&emsp;&emsp;鉴于初次成立社团,各类社团只在大二至大四年级组建。学生社团应由一名指导教师和二名以上的同学发起,起草章程。章程包括社团名称、宗旨、主要任
+								务、活动内容、组织机构及其他应说明的事项。然后由学院审批正式成立,开始招收会员,每个社团成员人数原则上不少于15名。<br>
+								&emsp;&emsp;各社团要定期举办活动，每次活动要填写活动记录。没戏活动目标明确，活动过程完整，同时做好学生的安全教育工作，做学生的考勤工作！</p>
+							<a th:href="@{/club-create}" href="#"  class="btn btn-common btn-effect">创建社团</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Build Community End -->
+
+		<!-- Activity List Start -->
+		<section id="activity" class="section">
+			<div class="container">
+				<div class="section-header">
+					<h2 class="section-title">活动推荐</h2>
+					<span>Activity</span>
+					<p class="section-subtitle">&emsp;&emsp;社团活动是一个极具亮点的特色课程。它是校园文化的重要载体，是学生愉悦身心、拓宽兴趣、开阔视野的主要阵地。丰富多彩的社团活动，完善学生知识结构，激发学生寻找个人特色与才能，促进学生个性发展，引导他们成为通才，使他们成为具备社会竞争力的现代公民，实现学校精诚育人、全面提高学生素质的终极目标。</p>
+				</div>
+				<!-- Activity List Start -->
+				<div class="row">
+					<!-- Acitivity Unit Start -->
+					<div class="col-lg-4 col-md-6 col-xs-12" th:each="activity : ${activities}">
+						<div class="featured-box">
+							<div class="featured-icon">
+								<i class="lni-pencil"></i>
+							</div>
+							<div class="featured-content">
+								<div class="icon-o"><i class="lni-pencil"></i></div>
+								<h4 th:text ="${activity.title}">新春快乐</h4>
+								<p th:text="${activity.description}">这是活动的简介</p>
+								<button class="ui right floated mini pink basic button"><a th:href="@{/activity/{id}(id=${activity.id})}" href="" style="color: #F97794;">详细信息</a></button>
+							</div>
+						</div>
+					</div>
+					<!-- Acitivity Unit End -->
+				</div>
+			</div>
+		</section>
+		<!-- Activity List End -->
+
+		<!-- Start Video promo Section -->
+		<section id="video" class="video-promo section">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<div class="video-promo-content text-center">
+							<a href="static/video/cs.mp4" class="video-popup"><i class="lni-film-play"></i></a>
+							<h2 class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">视频推荐</h2>
+							<p class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">聊城大学计算机学院社团联合会2017级宣传视频</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Video Promo Section -->
+
+		<!-- News List Start -->
+		<section id="news" class="testimonial section">
+			<div class="container">
+				<div class="section-header">
+					<h2 class="section-title">新闻推荐</h2>
+					<span>News</span>
+					<p class="section-subtitle">&emsp;&emsp;新闻，是指报纸、电台、电视台、互联网等媒体经常使用的记录与传播信息的一种文体，是反映时代的一种文体。社团新闻包括学校重大赛事的公开、活动结果的公示、相关政策的说明等。它是校园文化的重要载体，是学生愉悦身心、拓宽兴趣、开阔视野的主要阵地。</p>
+				</div>
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-xs-12" th:each="new : ${news}">
+						<div class="news-box">
+							<div class="news-icon">
+								<span><i class="lni-star-filled"></i></span>
+							</div>
+							<a href="" th:href="@{/new/{id}(id=${mynews.id})}">
+								<span class="news-content">
+									<span th:text="${mynews.title}">最新的新闻</span>
+									<span th:text="${mynews.publishtime}">1997-10-06&emsp;</span>
+									<b>阅读量:</b><b th:text="${mynews.views}">58</b>
+								</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- News List End -->
+		<!-- Contact Section Start -->
+		<section id="contact" class="section">
+			<div class="contact-form">
+				<div class="container">
+					<div class="section-header">
+						<h2 class="section-title">联系我们</h2>
+						<span>Contact</span>
+						<p class="section-subtitle">指出我们问题，我们将在第一时间给您处理！</p>
+					</div>
+					<div class="row">
+						<div class="col-lg-9 col-md-9 col-xs-12">
+							<div class="contact-block">
+								<form id="contactForm">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<input type="text" class="form-control" id="real_name" name="real_name" placeholder="真实姓名" required
+												 data-error="Please enter your name">
+												<div class="help-block with-errors"></div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<input type="text" placeholder="邮箱" id="email" class="form-control" name="name" required data-error="Please enter your email">
+												<div class="help-block with-errors"></div>
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<input type="text" placeholder="问题标题" id="problem_title" class="form-control" required data-error="Please enter your subject">
+												<div class="help-block with-errors"></div>
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<textarea class="form-control" id="problem_text" placeholder="简要陈述你遇到的问题" rows="7" data-error="Write your problem"
+												 required></textarea>
+												<div class="help-block with-errors"></div>
+											</div>
+											<div class="submit-button">
+												<button class="btn btn-common btn-effect" id="submit" type="submit">发送</button>
+												<div id="msgSubmit" class="h3 hidden"></div>
+												<div class="clearfix"></div>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-xs-12">
+							<div class="contact-deatils">
+								<!-- Content Info -->
+								<div class="contact-info_area">
+									<div class="contact-info">
+										<i class="lni-map"></i>
+										<h5>位置</h5>
+										<p>聊城大学&emsp;西校区</p>
+									</div>
+									<!-- Content Info -->
+									<div class="contact-info">
+										<i class="lni-star"></i>
+										<h5>邮件</h5>
+										<p>liaochengdaxue@163.com</p>
+									</div>
+									<!-- Content Info -->
+									<div class="contact-info">
+										<i class="lni-phone"></i>
+										<h5>Phone</h5>
+										<p>+48 123 456 789</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Contact Section End -->
+
+
+		<!-- Footer Section Start -->
+		<footer th:replace="_fragments :: footer">
+			<!-- Copyright Start  -->
+			<div id="copyright">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="site-info float-left">
+								<p>聊城大学 &emsp;巫_月</p>
+							</div>
+							<div class="float-right">
+								<ul class="nav nav-inline">
+									<li class="nav-item">
+										<a class="nav-link active" href="#">关于</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">QQ</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">CSDN</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">博客</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Copyright End -->
+
+		</footer>
+		<!-- Footer Section End -->
+
+		<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+		<script src="../static/js/wow.js" th:src="@{/js/wow.js}"></script>
+		<script src="../static/js/jquery-min.js"  th:src="@{/js/jquery-min.js}"></script>
+		<script src="../static/js/bootstrap.min.js"  th:src="@{/js/bootstrap.min.js}"></script>
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+		<!--/*/</th:block>/*/-->
+	</body>
+</html>

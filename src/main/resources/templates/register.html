@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+	<head th:replace="_fragments :: head(~{::title})">
+		<meta charset="utf-8">
+		<title>注册</title>
+		<link rel="stylesheet" href="../static/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../static/css/line-icons.css">
+		<link rel="stylesheet" href="../static/css/owl.carousel.css">
+		<link rel="stylesheet" href="../static/css/owl.theme.css">
+		<link rel="stylesheet" href="../static/css/nivo-lightbox.css">
+		<link rel="stylesheet" href="../static/css/magnific-popup.css">
+		<link rel="stylesheet" href="../static/css/animate.css">
+		<link rel="stylesheet" href="../static/css/menu_sideslide.css">
+		<link rel="stylesheet" href="../static/css/main.css">
+		<link rel="stylesheet" href="../static/css/responsive.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+	</head>
+	<body>
+		<!-- Header Section Start -->
+		<header id="slider-area">
+			<nav class="navbar navbar-expand-lg fixed-top scrolling-navbar  bg-white" th:replace="_fragments :: menu">
+				<div class="container">
+					<a class="navbar-brand" href="#" style="color: #F97794;"><span class="lni-bulb"></span>社团联合会</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+					 aria-expanded="false" aria-label="Toggle navigation">
+						<i class="lni-menu"></i>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarCollapse">
+						<ul class="navbar-nav mr-auto w-100 justify-content-end">
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">首页</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">社团介绍</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">社团活动</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">社团新闻</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">登录</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">注册</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">注销</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link page-scroll" href="#">个人中心</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<!-- Header Section End -->
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<div class="ui center aligned container">
+			<div class="ui center aligned grid">
+				<div class=" ten wide column subscribe-form">
+					<div class="form-wrapper">
+						<div class="sub-title text-center">
+							<h3>注册</h3>
+							<p></p>
+						</div>
+						<form class=" ui equal width form" th:object ="${user}" action="#" th:action="@{/register/input}" th:method="post">
+							<input type="hidden" name="id" th:field="*{id}" th:value="${user.id}">
+							<div class=" two fields">
+								<div class="field">
+									<label class="q-left-float">账号</label>
+									<input placeholder="账号" name="username" type="text" th:field="*{username}">
+								</div>
+								<div class="field">
+									<label class="q-left-float">密码</label>
+									<input placeholder="密码" name="password" type="password" th:field="*{password}">
+								</div>
+							</div>
+						
+							<div class="two fields">
+								<div class=" field">
+									<label class="q-left-float">昵称</label>
+									<input type="text" placeholder="昵称" name="nickname" th:field="*{nickname}">
+								</div>
+								<div class=" field">
+									<label class="q-left-float">学院</label>
+									<select class="ui dropdown"  name="academy.id" th:field="*{academy.id}">
+										<option value="">选择学院</option>
+										<option th:each="academy : ${academies}" th:value="${academy.id}"  th:text="${academy.name}">计算机学院</option>
+									</select>
+								</div>
+							</div>
+							<div class="two fields">
+								<div class=" field">
+									<label class="q-left-float">年级</label>
+									<select class="ui dropdown" name="grade.id" th:field="*{grade.id}" >
+										<option value="" >选择年级</option>
+										<option th:each="grade : ${grades}" th:value=" ${grade.id}" th:text="${grade.value}">2015</option>
+									</select>
+								</div>
+								<div class="field">
+									<label class="q-left-float">性别</label>
+									<select class="ui dropdown" name="sex" th:field="*{sex}">
+										<option value="" >选择性别</option>
+										<option th:value="0">女</option>
+										<option th:value="1">男</option>
+									</select>
+								</div>
+							</div>
+							<div class="two fields">
+								<div class=" field">
+									<lable class="q-left-float">联系方式</lable>
+									<input type="text" placeholder="18863525847" name="phone" th:field="*{phone}" th:value="*{phone}">
+								</div>
+								<div class=" field">
+									<lable class="q-left-float">电子邮箱</lable>
+									<input type="email" placeholder="joe@schmoe.com" name="email" th:field="*{email}" th:value="*{email}">
+								</div>
+							</div>
+							<br>
+							<br>
+							<div class="form-submit">
+								<button type="submit" class="btn btn-common btn-effect">提交</button>
+							</div>
+							<div class="ui error message"></div>
+
+							<div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">用户名和密码错误</div>
+						</form>
+						
+					</div>
+					
+				</div>
+			</div>
+			
+		</div>
+		<!-- Login End -->
+		
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<!-- Footer Section Start -->
+		<footer th:replace="_fragments :: footer">
+			<!-- Copyright Start  -->
+			<div id="copyright">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="site-info float-left">
+								<p>聊城大学 &emsp;巫_月</p>
+							</div>
+							<div class="float-right">
+								<ul class="nav nav-inline">
+									<li class="nav-item">
+										<a class="nav-link active" href="#">关于</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">QQ</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">CSDN</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">博客</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Copyright End -->
+
+		</footer>
+		<!-- Footer Section End -->
+
+
+		<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+		<script src="../static/js/wow.js" th:src="@{/js/wow.js}"></script>
+		<script src="../static/js/jquery-min.js"  th:src="@{/js/jquery-min.js}"></script>
+		<script src="../static/js/bootstrap.min.js"  th:src="@{/js/bootstrap.min.js}"></script>
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+		<!--/*/</th:block>/*/-->
+
+
+
+		<script>
+			$('.ui.form')
+					.form({
+						fields: {
+							username: {
+								identifier: 'username',
+								rules: [
+									{
+										type   : 'empty',
+										prompt : '请输入账号'
+									}
+								]
+							},
+							password: {
+								identifier: 'password',
+								rules: [
+									{
+										type   : 'empty',
+										prompt : '请输入密码'
+									},
+									{
+										type   : 'minLength[6]',
+										prompt : '你的密码必须至少6位数'
+									}
+								]
+							},
+							nickname: {
+								identifier: 'nickname',
+								rules: [
+									{
+										type   : 'empty',
+										prompt : '昵称不为空'
+									}
+								]
+							},
+							academy: {
+								identifier: 'academy.id',
+								rules: [
+									{
+										type   : 'empty',
+										prompt : '请选择一个学院'
+									}
+								]
+							},
+							grade: {
+								identifier: 'grade.id',
+								rules: [
+									{
+										type   : 'empty',
+										prompt : '请选择一个年级'
+									}
+								]
+							},
+							gender: {
+								identifier: 'sex',
+								rules: [
+									{
+										type   : 'empty',
+										prompt : '请选择一个性别'
+									}
+								]
+							},
+							phone: {
+								identifier: 'phone',
+								rules: [
+									{
+										type   : 'minLength[11]',
+										prompt : '请输入格式正确的手机号'
+									},{
+										type   : 'maxLength[11]',
+										prompt : '请输入格式正确的手机号'
+									}
+								]
+							},
+
+							email: {
+								identifier: 'email',
+								rules: [
+									{
+										type   : 'email',
+										prompt : '请输入一个正确的邮箱'
+									}
+								]
+							}
+						}
+					})
+			;
+		</script>
+	</body>
+</html>
